@@ -4,28 +4,28 @@ SecurePass Vault is a console-based C++ application which is a lightweight passw
 
 ## 🔐Features
 
-User Authentication → Master password protected (with hashing).
+1. User Authentication → Master password protected (with hashing).
 
-Organized Storage → Passwords stored by website using HashMap.
+2. Organized Storage → Passwords stored by website using HashMap.
 
-Fast Search → Autocomplete and prefix-based search with Trie.
+3. Fast Search → Autocomplete and prefix-based search with Trie.
 
- Password History → Restore old passwords using Stack/Doubly Linked List.
+4. Password History → Restore old passwords using Stack/Doubly Linked List.
 
- Auto-Vault Cleanup → Auto-delete least-used/oldest passwords using Queue or Priority Queue.
+5. Auto-Vault Cleanup → Auto-delete least-used/oldest passwords using Queue or Priority Queue.
 
- Strong Password Generator → Backtracking/random generation with rules.
+6. Strong Password Generator → Backtracking/random generation with rules.
 
- Encryption Simulation → Encoded storage for added security.
+7. Encryption Simulation → Encoded storage for added security.
 
- File Persistence → Save and load vault data from local file system.
+8. File Persistence → Save and load vault data from local file system.
 
 ## Tech & Concepts Used
 
-C++ (OOP + STL)
+1. C++ (OOP + STL)
 
-DSA: HashMap, Trie, Stack, Queue, Priority Queue, Backtracking.
+2. DSA: HashMap, Trie, Stack, Queue, Priority Queue, Backtracking.
 
-File Handling: Serialization for vault persistence.
+3. File Handling: Serialization for vault persistence.
 
-Security Basics: Hashing + Encryption simulation.
+4. Security Basics: Hashing + Encryption simulation.
