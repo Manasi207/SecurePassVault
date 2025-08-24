@@ -10,19 +10,19 @@ Organized Storage → Passwords stored by website using HashMap.
 
 Fast Search → Autocomplete and prefix-based search with Trie.
 
-Password History → Restore old passwords using Stack/Doubly Linked List.
+ Password History → Restore old passwords using Stack/Doubly Linked List.
 
-Auto-Vault Cleanup → Auto-delete least-used/oldest passwords using Queue or Priority Queue.
+ Auto-Vault Cleanup → Auto-delete least-used/oldest passwords using Queue or Priority Queue.
 
-Strong Password Generator → Backtracking/random generation with rules.
+ Strong Password Generator → Backtracking/random generation with rules.
 
-Encryption Simulation → Encoded storage for added security.
+ Encryption Simulation → Encoded storage for added security.
 
-File Persistence → Save and load vault data from local file system.
+ File Persistence → Save and load vault data from local file system.
 
-Tech & Concepts Used
+## Tech & Concepts Used
 
-## C++ (OOP + STL)
+C++ (OOP + STL)
 
 DSA: HashMap, Trie, Stack, Queue, Priority Queue, Backtracking.
 
