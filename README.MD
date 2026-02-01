@@ -29,3 +29,39 @@ SecurePass Vault is a console-based C++ application which is a lightweight passw
 3. File Handling: Serialization for vault persistence.
 
 4. Security Basics: Hashing + Encryption simulation.
+
+## 📁 Project Directory Structure
+
+```
+SecurePassVault/
+│
+├── main.cpp
+│
+├── include/
+│   ├── Auth.h
+│   ├── PasswordManager.h
+│   ├── Trie.h
+│   ├── History.h
+│   ├── Generator.h
+│   ├── Encryption.h
+│   └── Storage.h
+│
+├── src/
+│   ├── Auth.cpp
+│   ├── PasswordManager.cpp
+│   ├── Trie.cpp
+│   ├── History.cpp
+│   ├── Generator.cpp
+│   ├── Encryption.cpp
+│   └── Storage.cpp
+│
+├── data/
+│   ├── vault.dat
+│   └── master.hash
+│
+├── utils/
+│   ├── helpers.h
+│   └── helpers.cpp
+│
+└── README.md
+```
