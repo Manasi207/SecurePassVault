@@ -30,6 +30,10 @@ SecurePass Vault is a console-based C++ application which is a lightweight passw
 
 4. Security Basics: Hashing + Encryption simulation.
 
+### 1.Compile - g++ main.cpp src/_.cpp security/_.cpp utils/\*.cpp -I include -o SecurePass
+
+### 2.Run - SecurePass.exe or ./SecurePass
+
 ## 📁 Project Directory Structure
 
 ```
@@ -62,16 +66,6 @@ SecurePassVault/
 │   ├── AESManager.h
 │   └── AESManager.cpp
 │
-├── ui/                              ← NEW – Qt User Interface Layer
-│   ├── LoginWindow.h
-│   ├── LoginWindow.cpp              ← master auth screen
-│   │
-│   ├── Dashboard.h
-│   ├── Dashboard.cpp                ← list of saved credentials
-│   │
-│   ├── ViewDialog.h
-│   └── ViewDialog.cpp               ← eye toggle + copy + edit/delete
-│
 ├── data/                            ← Persistent Storage
 │   ├── vault.dat                    ← encrypted credentials
 │   └── master.hash                  ← hashed master password
@@ -79,13 +73,6 @@ SecurePassVault/
 ├── utils/                           ← Helper Utilities
 │   ├── helpers.h
 │   └── helpers.cpp
-│
-├── resources/                       ← (Optional UI assets)
-│   ├── eye_open.png
-│   ├── eye_closed.png
-│   └── copy.png
-│
-├── CMakeLists.txt / .pro            ← Build config for Qt
 │
 └── README.md
 ```

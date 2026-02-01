@@ -2,11 +2,12 @@
 #include "Auth.h"
 #include "PasswordManager.h"
 #include "Generator.h"
+#include "model/Credential.h"
+
 using namespace std;
 
 int main()
 {
-
     Auth auth;
     if (!auth.loginFlow())
         return 0;
@@ -15,45 +16,51 @@ int main()
 
     while (true)
     {
-        cout << "\n1.Add\n2.Get\n3.Search\n4.Generate\n5.List\n6.Exit\nChoice: ";
-
+        cout << "\n1.Add Credential\n2.View Credential\n3.Edit Credential\n4.Delete Credential\n5.Search\n6.List All\n7.Generate Password\n8.Exit\nChoice: ";
         int ch;
         cin >> ch;
 
-        string s, p;
-
+        string site, url, user, pass;
         switch (ch)
         {
-
         case 1:
-            cout << "Site:";
-            cin >> s;
-            cout << "Pass:";
-            cin >> p;
-            pm.addPassword(s, p);
+            cout << "Site Name: ";
+            cin >> site;
+            cout << "URL: ";
+            cin >> url;
+            cout << "Username: ";
+            cin >> user;
+            cout << "Password: ";
+            cin >> pass;
+            pm.addCredential(Credential(site, url, user, pass));
             break;
-
         case 2:
-            cout << "Site:";
-            cin >> s;
-            cout << pm.getPassword(s);
+            cout << "Site Name: ";
+            cin >> site;
+            pm.viewCredential(site);
             break;
-
         case 3:
-            cout << "Prefix:";
-            cin >> s;
-            pm.search(s);
+            cout << "Site Name: ";
+            cin >> site;
+            pm.editCredential(site);
             break;
-
         case 4:
-            cout << Generator::generate(12);
+            cout << "Site Name: ";
+            cin >> site;
+            pm.deleteCredential(site);
             break;
-
         case 5:
+            cout << "Prefix: ";
+            cin >> site;
+            pm.search(site);
+            break;
+        case 6:
             pm.listAll();
             break;
-
-        case 6:
+        case 7:
+            cout << "Generated Password: " << Generator::generate(12) << endl;
+            break;
+        case 8:
             exit(0);
         }
     }

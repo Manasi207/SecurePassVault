@@ -1,35 +1,43 @@
 #include "Storage.h"
-#include "Encryption.h"
+#include "security/AESManager.h"
 #include <fstream>
+#include <sstream>
 
-void Storage::saveVault(map<string, string> data)
+void Storage::saveVault(vector<Credential> &creds)
 {
     ofstream file("data/vault.dat");
-    Encryption enc;
+    AESManager aes;
 
-    for (auto &p : data)
+    for (auto &c : creds)
     {
-        file << p.first << ","
-             << enc.encrypt(p.second) << "\n";
+        file << c.siteName << ","
+             << c.url << ","
+             << c.username << ","
+             << aes.encrypt(c.encPassword) << "\n";
     }
     file.close();
 }
 
-map<string, string> Storage::loadVault()
+vector<Credential> Storage::loadVault()
 {
+    vector<Credential> creds;
     ifstream file("data/vault.dat");
-    map<string, string> data;
-    Encryption enc;
-
+    AESManager aes;
     string line;
+
     while (getline(file, line))
     {
-        int pos = line.find(',');
-        string site = line.substr(0, pos);
-        string pass = line.substr(pos + 1);
+        stringstream ss(line);
+        string site, url, user, pass;
 
-        data[site] = enc.decrypt(pass);
+        getline(ss, site, ',');
+        getline(ss, url, ',');
+        getline(ss, user, ',');
+        getline(ss, pass, ',');
+
+        creds.push_back(Credential(site, url, user, aes.decrypt(pass)));
     }
+
     file.close();
-    return data;
+    return creds;
 }

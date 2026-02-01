@@ -1,15 +1,16 @@
 #ifndef PASSWORD_MANAGER_H
 #define PASSWORD_MANAGER_H
 
-#include <map>
+#include <vector>
+#include <string>
+#include "model/Credential.h"
 #include "Trie.h"
 #include "History.h"
 #include "Storage.h"
 
 class PasswordManager
 {
-    map<string, string> vault;
-
+    vector<Credential> vault;
     Trie trie;
     History history;
     Storage storage;
@@ -17,10 +18,10 @@ class PasswordManager
 public:
     PasswordManager();
 
-    void addPassword(string site, string pass);
-    string getPassword(string site);
-    void deletePassword(string site);
-
+    void addCredential(Credential c);
+    void viewCredential(string siteName); // asks for authentication
+    void editCredential(string siteName);
+    void deleteCredential(string siteName);
     void search(string prefix);
     void listAll();
 };
