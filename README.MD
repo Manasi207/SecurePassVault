@@ -37,7 +37,7 @@ SecurePassVault/
 │
 ├── main.cpp
 │
-├── include/
+├── include/                         ← Core Headers
 │   ├── Auth.h
 │   ├── PasswordManager.h
 │   ├── Trie.h
@@ -46,7 +46,7 @@ SecurePassVault/
 │   ├── Encryption.h
 │   └── Storage.h
 │
-├── src/
+├── src/                             ← Core Implementations
 │   ├── Auth.cpp
 │   ├── PasswordManager.cpp
 │   ├── Trie.cpp
@@ -55,13 +55,37 @@ SecurePassVault/
 │   ├── Encryption.cpp
 │   └── Storage.cpp
 │
-├── data/
-│   ├── vault.dat
-│   └── master.hash
+├── model/                           ← NEW – Data Model
+│   └── Credential.h                 ← site, url, username, encPassword
 │
-├── utils/
+├── security/                        ← NEW – Better Encryption Layer
+│   ├── AESManager.h
+│   └── AESManager.cpp
+│
+├── ui/                              ← NEW – Qt User Interface Layer
+│   ├── LoginWindow.h
+│   ├── LoginWindow.cpp              ← master auth screen
+│   │
+│   ├── Dashboard.h
+│   ├── Dashboard.cpp                ← list of saved credentials
+│   │
+│   ├── ViewDialog.h
+│   └── ViewDialog.cpp               ← eye toggle + copy + edit/delete
+│
+├── data/                            ← Persistent Storage
+│   ├── vault.dat                    ← encrypted credentials
+│   └── master.hash                  ← hashed master password
+│
+├── utils/                           ← Helper Utilities
 │   ├── helpers.h
 │   └── helpers.cpp
+│
+├── resources/                       ← (Optional UI assets)
+│   ├── eye_open.png
+│   ├── eye_closed.png
+│   └── copy.png
+│
+├── CMakeLists.txt / .pro            ← Build config for Qt
 │
 └── README.md
 ```
